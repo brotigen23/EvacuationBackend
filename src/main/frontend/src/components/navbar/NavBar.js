@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 
 
-function Main(){
-    return(
-        <div>
+
+function NavBar(){
+	return(
+		<div className='NavBar'>
             <Link to="/articles"> Статьи </Link>
             <Link to="/tests"> Тесты </Link>
             <Link to="/map"> Карта </Link>
-        </div>
-    )
+		</div>
+	)
 }
 
-export default Main;
+export default NavBar;

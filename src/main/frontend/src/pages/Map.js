@@ -1,8 +1,8 @@
+import NavBar from '../components/navbar/NavBar';
 
 function Map(){
     return(
-        <div>
-            Map page
+        <div>Карта емае
         </div>
     )
 }

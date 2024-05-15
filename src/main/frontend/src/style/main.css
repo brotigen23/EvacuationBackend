@@ -1,3 +1,11 @@
-.Link{
-    align-items: center
+.Article{
+    text-align: center
+}
+
+.NavBar{
+    margin-left: 5%;
+}
+
+.div{ 
+    border: border-width border-style border-color;
 }

@@ -1,13 +1,9 @@
-import Article from '../components/Article'
-
-
+import ArticlesList from "../components/articleList/ArticlesList";
 
 
 function Articles(){
     return(
-        <div>
-            <Article name='asd' content='asd' />
-        </div>
+        <ArticlesList />
     )
 }
 
