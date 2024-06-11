@@ -19,10 +19,24 @@ public class Questions {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fkTestID")
     private Tests test;
+
+    public int getId() {
+        return id;
+    }
+
     private String question;
+
+    public Questions(Tests test){
+        this.test = test;
+    }
 
     public Questions(Tests test, String question) {
         this.test = test;
         this.question = question;
+    }
+
+    @Override
+    public String toString() {
+        return "id:" + id + ", test id : " + test.getId() + ", question: " + question + "\n";
     }
 }

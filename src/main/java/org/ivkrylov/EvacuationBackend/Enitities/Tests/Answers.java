@@ -21,4 +21,12 @@ public class Answers {
     @Column(length = 1024)
     private String answer;
 
+    public Answers(Questions question){
+        this.question = question;
+    }
+
+    @Override
+    public String toString() {
+        return "id:" + id + ", question id: " + question.getId() + ", answer: " + answer + "\n";
+    }
 }

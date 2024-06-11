@@ -17,4 +17,13 @@ public class Tests {
     private int id;
 
     private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + id + " test name: " + name + "\n";
+    }
 }

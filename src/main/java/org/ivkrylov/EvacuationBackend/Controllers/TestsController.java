@@ -1,16 +1,11 @@
 package org.ivkrylov.EvacuationBackend.Controllers;
 
 import org.ivkrylov.EvacuationBackend.DTO.TestPost;
-import org.ivkrylov.EvacuationBackend.Enitities.Tests.TestResults;
 import org.ivkrylov.EvacuationBackend.Services.TestsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
-
 
 
 @Controller
@@ -40,7 +35,7 @@ public class TestsController {
     @PostMapping("/")
     public String postTest(@ModelAttribute("testPost") TestPost testPost){
         System.out.println("Post request....");
-        testsService.save(testPost);
+        testsService.saveResult(testPost);
         return "redirect:/tests";
     }
 }

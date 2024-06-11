@@ -8,6 +8,40 @@
 </head>
 <body>
 <div th:replace="fragments/headerAdmin :: headerAdmin" id="header">header</div>
+
+<div id="mainTest" class="main">
+    <form action="#" th:action="@{/admin/tests/post}" th:object="${test}" method="POST">
+
+        <input type="text" th:field="*{test.name}" />
+
+        <div th:each="question, i : *{questions}">
+            <table>
+                <thead>
+                <tr>
+                    <th th:text="${i.index}"></th>
+                    <th><input type="text" th:field="*{questions[__${i.index}__].question}" size="100"/></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="answer, j : *{answers}" th:if="*{answers[__${j.index}__].question} == *{questions[__${i.index}__]}">
+                    <td th:text="${j.index}">
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{answers[__${j.index}__].answer}" size="100" required/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+<div class="button">
+    <input type="submit" />
+</div>
+</form>
+
+</div>
+
+
 <div th:replace="fragments/footerAdmin :: footerAdmin" id="footer">footer</div>
 
 </body>
