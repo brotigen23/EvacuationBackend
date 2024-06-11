@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div id="mainArticles" class="main">
+
+    <table class="articlesTable">
+        <caption><b>Название</b></caption>
+
+        <tr th:each="article : ${articles}">
+            <td> 
+                <a th:href="@{/articles/{id}(id=${article.id})}" th:text="${article.name}"></a>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

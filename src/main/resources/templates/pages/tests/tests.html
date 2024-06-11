@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тесты</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div id="mainTests" class="main">
+
+    <table>
+        <caption><b>Тесты</b></caption>
+
+        <tr th:each="test : ${tests}">
+            <td> 
+                <a th:href="@{/tests/{id}(id=${test.id})}" th:text="${test.name}"></a>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+<div th:replace="fragments/footer :: footer" id="footer">footer</div>
+
+</body>
+</html>

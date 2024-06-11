@@ -1,13 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <title>Эвакуация из учебного корпуса №1</title>
-    <script defer="defer" src="/js/main.3964e643.js"></script>
-    <link href=" /css/main.643f809c.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Эвакуация</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root"></div>
+
+
+<div th:replace="fragments/header :: header" id="header">header</div>
+
+<div id="mainIndex" class="main">
+<h1>Главная страница</h1>
+</div>
+
+<div th:replace="fragments/footer :: footer" id="footer">footer</div>
+
+
 </body>
 </html>

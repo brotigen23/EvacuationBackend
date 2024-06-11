@@ -11,4 +11,9 @@ public class IndexController {
     public String getIndex(){
         return "index";
     }
+
+    @GetMapping("/map")
+    public String map(){
+        return "pages/map/map";
+    }
 }

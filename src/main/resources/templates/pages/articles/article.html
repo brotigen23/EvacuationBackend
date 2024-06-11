@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${article.name}"></title>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div id="mainArticle" class="main">
+    <h1 th:text="${article.name}"></h1>
+    <p th:utext="${article.content}"></p>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

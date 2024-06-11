@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" th:href="@{/css/style.css}"/>
+
+</head>
+<body >
+    <div th:fragment="headerAdmin" id="header">
+        <div class="header">
+        </div>
+        <div class="header-right">
+            <table>
+                <tr>
+                    <td><a th:href="@{/admin/articles}" th:text="Статьи"></a></td>
+                    <td><a th:href="@{/admin/tests}" th:text="Тесты"></a></td>
+                    <td><a th:href="@{/map}" th:text="Карта"></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

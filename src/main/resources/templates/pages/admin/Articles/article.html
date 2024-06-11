@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="fragments/headerAdmin :: headerAdmin" id="header">header</div>
+<div class="main">
+<form action="#" th:action="@{/admin/articles/post}" th:object="${article}" method="POST">
+
+    <label for="name">Название</label>
+    <input type="text" id="name" th:field="*{name}" size="80"/>
+    <p>Содержание</p>
+
+    <textarea type="text" id="content" th:field="*{content}" rows="50" cols="120"></textarea>
+    <p></p>
+    <input type="hidden" th:field="*{id}" />
+    <input type="submit" />
+
+</form>
+</div>
+<div th:replace="fragments/footerAdmin :: footerAdmin" id="footer">footer</div>
+
+</body>
+</html>

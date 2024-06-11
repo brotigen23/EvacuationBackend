@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${test.name}"></title>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style.css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div id="mainTest" class="main">
+
+    <h1 th:text="${test.name}"></h1>
+    <form action="#" th:action="@{/tests/}" th:object="${testPost}" method="POST">
+        <input type="text" th:field="*{user}" placeholder="Введите свое имя" required/>
+
+        <div th:each="question, index : ${questions}">        
+            <table>
+
+                <thead>
+                    <h3 th:text="${question.question}"></h3>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div th:each="answer : ${answers}" th:if="${answer.question.id} == ${question.id}">
+                            <input type="radio" th:field="*{answer[__${index.index}__]}" th:value="${answer.id}" required/>
+                            <label th:text="${answer.answer}"></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <div class="button">
+        <input type="submit" />
+        </div>
+    </form>
+    
+</div> 
+<div th:replace="fragments/footer :: footer" id="footer">footer</div>
+
+</body>
+</html>

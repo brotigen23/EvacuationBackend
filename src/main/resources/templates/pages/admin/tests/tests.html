@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="fragments/headerAdmin :: headerAdmin" id="header">header</div>
+<div class="main">
+<table>
+    <thead>
+    <tr>
+        <th>Название</th>
+        <th>Изменить</th>
+        <th>Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="test : ${tests}">
+        <td th:text="${test.name}"></td>
+        <td><a th:href="@{/admin/tests/{id}(id=${test.id})}">Изменить</a></td>
+        <td><a th:href="@{/admin/tests/delete/{id}(id=${test.id})}">Удалить</a></td>
+    </tr>
+    <tr>
+        <td colspan="3"><a th:href="@{/admin/tests/new}">Добавить</a></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+<div th:replace="fragments/footerAdmin :: footerAdmin" id="footer">footer</div>
+
+</body>
+</html>

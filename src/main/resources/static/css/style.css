@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+}
+
+
+.main{
+    background-color: cornsilk;
+    display: block;
+    min-height: 85vh;
+    margin: 0 auto;
+    text-align: center;
+}
+#header{
+    background-color: aqua;
+    display: block;
+    min-height: 10vh;
+    margin-top: 0 auto;
+}
+
+#footer{
+    background-color: bisque;
+    display: block;
+    min-height: 5vh;
+}
+
+#mainArticle{
+    max-width: 1000px;
+}
+
+
+table{
+    margin: 0 auto;
+}
+
+.button{
+    text-align: center;
+    background-color: cornsilk;
+}
+
+.lil-gui.autoPlace{
+    position: absolute;
+    top: 10vh;
+}
