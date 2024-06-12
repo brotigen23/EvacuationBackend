@@ -22,32 +22,120 @@ let gui, obj;
 let arrowPath = [];
 
 const points = [
+    'A114',
+    'A115',
+    'A116',
     'A117',
     'A118',
     'A119',
     'A120',
+
+    'A121',
+    'A122',
+    'A123',
+    'A124',
+    'A125',
     'A126',
     'A127',
     'A128',
     'A129',
-    'A217',
+
+    'A201',
+    'A202',
+    'A203',
+    'A204',
+    'A205',
+    'A214',
+    'A215',
+    'A226',
+    'A227',
     'A218',
     'A219',
     'A220',
+    'A221',
+    'A222',
+    'A223',
+    'A224',
+    'A225',
     'A226',
     'A227',
     'A228',
-    'A229'
+    'A229',
+    'A230',
+
+
+    'A301',
+    'A302',
+    'A303',
+    'A304',
+    'A305',
+    'A306',
+    'A307',
+    'A308',
+    'A309',
+    'A310',
+    'A311',
+    'A312',
+    'A313',
+    'A314',
+    'A315',
+    'A316',
+    'A317',
+    'A318',
+    'A319',
+    'A320',
+    'A321',
+    'A322',
+    'A323',
+    'A324',
+    'A325',
+    'A326',
+    'A327',
+    'A328',
+    'A329',
+
+    'A401',
+    'A402',
+    'A403',
+    'A404',
+    'A405',
+    'A406',
+    'A407',
+    'A408',
+    'A409',
+    'A410',
+    'A411',
+    'A412',
+    'A413',
+    'A414',
+    'A415',
+    'A416',
+    'A417',
+    'A418',
+    'A419',
+    'A420',
+    'A421',
+    'A422',
+    'A423',
+    'A424',
+    'A425',
+    'A426',
+    'A427',
+    'A428',
+    'A429'
 ]
 
 const exits = [
     'MainExit',
-    'LeftExit'
+    'LeftExit',
+    'RigthExit'
 ]
 
 const floors = [
     'FirstFloor',
-    'SecondFloor'
+    'SecondFloor',
+    'ThirdFloor',
+    'FourthFloor'
 ]
 
 var floor = 0;
@@ -75,9 +163,10 @@ function initNavmesh(){
 
 function initScene(){
    console.log("Loading models...");
-    //loadModel('Scene');
     loadModel('FirstFloor', true, 'FirstFloor');
     loadModel('SecondFloor', false, 'SecondFloor');
+    loadModel('ThirdFloor', false, 'ThirdFloor');
+    loadModel('FourthFloor', false, 'FourthFloor');
     loadModel('Points', false);
     loadModel('Navmesh', false);
 }
@@ -108,7 +197,7 @@ function changeFloor(){
 }
 
 function upFloor(){
-    if(floor < 1)
+    if(floor < floors.length - 1)
         floor++;
     changeFloor();
 }
@@ -129,15 +218,14 @@ function init() {
     setupGUI();
 
     renderer = new THREE.WebGLRenderer( { antialias: true } );
-    //renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( container.offsetWidth, container.offsetHeight );
-    //document.body.appendChild( renderer.domElement );
     container.appendChild( renderer.domElement );
 
     window.addEventListener('resize', onWindowResize, false);
 
     camera = new THREE.PerspectiveCamera( 60, container.offsetWidth / container.offsetHeight, 1, 1000 );
     camera.position.set( 400, 200, 0 );
+
     // controls
 
     controls = new OrbitControls( camera, renderer.domElement );
@@ -175,7 +263,7 @@ function draw(verts){
         var to = verts[i+1];
         var direction = to.clone().sub(from);
         var length = direction.length();
-        var arrowHelper = new THREE.ArrowHelper(direction.normalize(), from, length, 0x00ff00);
+        var arrowHelper = new THREE.ArrowHelper(direction.normalize(), from, length, 0xff0000);
         scene.add( arrowHelper );
         arrowPath.push(scene.children[scene.children.length - 1]);
     }
@@ -186,6 +274,8 @@ function findPaths(){
     for(var i = 0; i < exits.length; i++){
         let a = scene.getObjectByName(obj.pointsDropdown, true).position;
         let b = scene.getObjectByName(exits[i], true).position;
+        console.log(a);
+        console.log(b);
 
         // Поиск пути
         let groupID = pathfinding.getGroup(ZONE, a);

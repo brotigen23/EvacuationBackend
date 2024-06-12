@@ -12,8 +12,6 @@
 <div id="mainArticles" class="main">
 
     <table class="articlesTable">
-        <caption><b>Название</b></caption>
-
         <tr th:each="article : ${articles}">
             <td> 
                 <a th:href="@{/articles/{id}(id=${article.id})}" th:text="${article.name}"></a>

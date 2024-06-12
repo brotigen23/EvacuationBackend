@@ -13,8 +13,6 @@
 <div id="mainTests" class="main">
 
     <table>
-        <caption><b>Тесты</b></caption>
-
         <tr th:each="test : ${tests}">
             <td> 
                 <a th:href="@{/tests/{id}(id=${test.id})}" th:text="${test.name}"></a>

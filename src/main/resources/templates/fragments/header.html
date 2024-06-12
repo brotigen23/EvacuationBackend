@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
-    <link rel="stylesheet" type="text/css" href="../../css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" th:href="@{/css/header.css}"/>
 
 </head>
 <body >
-    <div th:fragment="header" id="header">
-        <div class="header">
+    <div th:fragment="header" id="header" >
+        <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}"/>
+
+        <div class="logo">
+            <a th:href="@{/}">
+                <img th:src="@{/img/logo.jpg}" alt="Лого ЧГУ" height="25">
+            </a>
         </div>
-        <div class="header-right">
-            <table>
-                <tr>
-                    <td><a th:href="@{/articles}" th:text="Статьи"></a></td>
-                    <td><a th:href="@{/tests}" th:text="Тесты"></a></td>
-                    <td><a th:href="@{/map}" th:text="Карта"></a></td>
-                </tr>
-            </table>
+        <div class="nav">
+            <a th:href="@{/articles}" th:text="Статьи"></a>
+            <a th:href="@{/tests}" th:text="Тесты"></a>
+            <a th:href="@{/map}" th:text="Карта"></a>
         </div>
     </div>
 </body>

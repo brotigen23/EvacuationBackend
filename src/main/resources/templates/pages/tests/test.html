@@ -14,25 +14,28 @@
 
     <h1 th:text="${test.name}"></h1>
     <form action="#" th:action="@{/tests/}" th:object="${testPost}" method="POST">
-        <input type="text" th:field="*{user}" placeholder="Введите свое имя" required/>
+        <input type="text" th:field="*{user}" placeholder="Введите свое имя" required class="inputText"/>
 
-        <div th:each="question, index : ${questions}">        
+        <div th:each="question, index : ${questions}">
             <table>
 
                 <thead>
-                    <h3 th:text="${question.question}"></h3>
+                <tr>
+                    <th th:text="${question.question}">
+                    </th>
+                </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td class="testAnswer">
                             <div th:each="answer : ${answers}" th:if="${answer.question.id} == ${question.id}">
-                            <input type="radio" th:field="*{answer[__${index.index}__]}" th:value="${answer.id}" required/>
+                            <input type="radio" th:field="*{answer[__${index.index}__]}" th:value="${answer.id}" required class="inputRadio"/>
                             <label th:text="${answer.answer}"></label>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            </div>
         </div>
         <div class="button">
         <input type="submit" />
